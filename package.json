@@ -1,0 +1,25 @@
+{
+  "name": "runnel-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "test:packages": "pnpm --filter \"./packages/*\" --parallel run test",
+    "test:packages:coverage": "pnpm --filter \"./packages/*\" run test:coverage",
+    "build:packages": "pnpm --filter \"./packages/*\" --parallel --if-present run build:cp",
+    "prepare": "husky",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "vite": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0"
+}

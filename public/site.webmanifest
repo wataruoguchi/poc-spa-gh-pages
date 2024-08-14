@@ -1,0 +1,13 @@
+{
+  "name": "Natto your average",
+  "icons": [
+    {
+      "src": "/public/image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#007800",
+  "display": "browser"
+}
