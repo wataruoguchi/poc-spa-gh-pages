@@ -23,6 +23,6 @@ jobs:
       - run: npm run build:packages
       - run: rm -rf packages node_modules .gitignore
       - run: git init
+      - run: git checkout gh-pages
       - run: git add -A
       - run: git commit -m "Deploy"
-      - run: git push -f git@github.com:wataruoguchi/poc-spa-gh-pages.git main:gh-pages
