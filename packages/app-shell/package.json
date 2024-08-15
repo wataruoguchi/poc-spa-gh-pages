@@ -8,7 +8,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "build": "tsc && vite build",
-    "build:cp": "DIST_DIR=\"../../dist/app-shell\" && npm run build && rm -rf $DIST_DIR && cp -r dist $DIST_DIR",
+    "build:cp": "DIST_DIR=\"../../public/app-shell\" && npm run build && rm -rf $DIST_DIR && cp -r dist $DIST_DIR",
     "preview": "vite preview"
   },
   "devDependencies": {

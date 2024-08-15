@@ -58,7 +58,7 @@
       var elm = document.createElement("script");
       // Browser cache busting
       var timestamp = new Date().getTime();
-      elm.src = `dist/app-shell/main.js?t=${timestamp}`;
+      elm.src = `public/app-shell/main.js?t=${timestamp}`;
       elm.type = "module";
       document.body.appendChild(elm);
     </script>

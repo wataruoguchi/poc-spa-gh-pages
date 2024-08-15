@@ -8,7 +8,7 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "build": "tsc -b && vite build",
-    "build:cp": "DIST_DIR=\"../../dist/react-fragment\" && npm run build && rm -rf $DIST_DIR && cp -r dist $DIST_DIR",
+    "build:cp": "DIST_DIR=\"../../public/react-fragment\" && npm run build && rm -rf $DIST_DIR && cp -r dist $DIST_DIR",
     "lint": "eslint .",
     "preview": "vite preview"
   },

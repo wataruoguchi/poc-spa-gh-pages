@@ -9,7 +9,7 @@ export default defineConfig(({ command }) => {
       ...defaultConfig,
       define: {
         "process.env.NODE_ENV": '"production"',
-        "import.meta.env.VITE_CDN_HOST": `"dist"`,
+        "import.meta.env.VITE_CDN_HOST": `"public"`,
       },
       base: "./", // Relative path to the root of the repository
       build: {
