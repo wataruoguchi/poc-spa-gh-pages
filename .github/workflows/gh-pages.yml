@@ -23,6 +23,6 @@ jobs:
       - run: npm run build:packages
       - run: rm -rf packages node_modules .gitignore
       - run: git init
-      - run: git checkout gh-pages
+      - run: git checkout -b gh-pages
       - run: git add -A
       - run: git commit -m "Deploy"
