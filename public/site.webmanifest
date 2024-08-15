@@ -2,7 +2,7 @@
   "name": "Natto your average",
   "icons": [
     {
-      "src": "./public/image.png",
+      "src": "./image.png",
       "sizes": "512x512",
       "type": "image/png"
     }
