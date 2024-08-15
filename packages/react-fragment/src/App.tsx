@@ -1,11 +1,14 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import { Provider, ErrorBoundary } from "@rollbar/react";
+import Rollbar from "rollbar/dist/rollbar.noconflict.umd.js";
+import { getRollbarConfig } from "./getRollbarConfig";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  return (
+  const app = () => (
     <div id="react-fragment">
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -28,6 +31,18 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
+  );
+
+  const rollbarConfig = getRollbarConfig();
+  if (!rollbarConfig) {
+    return app();
+  }
+
+  const rollbar = new Rollbar(rollbarConfig);
+  return (
+    <Provider instance={rollbar}>
+      <ErrorBoundary>{app()}</ErrorBoundary>
+    </Provider>
   );
 }
 
