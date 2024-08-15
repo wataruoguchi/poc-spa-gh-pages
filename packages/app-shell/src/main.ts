@@ -1,6 +1,7 @@
 import { createScriptTag } from "./create-script-tag";
 import { fetchAppPathFromManifest } from "./fetch-app-path-from-manifest";
 
+console.log("Loading app shell");
 window.addEventListener("load", () => {
   const moduleList = ["react-fragment"];
   console.log("Loading:", moduleList);
