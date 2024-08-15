@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 20
       - uses: pnpm/action-setup@v4
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: npm run build:packages
       - run: rm -rf packages node_modules .gitignore
       - run: git init
