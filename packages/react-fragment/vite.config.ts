@@ -1,9 +1,9 @@
 import react from "@vitejs/plugin-react-swc";
 import { execSync } from "child_process";
 import { defineConfig } from "vite";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 const gitVersion = execSync("git rev-parse --short HEAD").toString().trim();
-
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   const defaultConfig = {
@@ -17,7 +17,14 @@ export default defineConfig(({ command }) => {
     // use `index.tsx`
     return {
       ...defaultConfig,
-      plugins: [...defaultConfig.plugins],
+      plugins: [
+        ...defaultConfig.plugins,
+        cssInjectedByJsPlugin({
+          injectCode: (cssCode: string) => {
+            return `window.__styles = ${cssCode}`;
+          },
+        }),
+      ],
       define: {
         ...defaultConfig.define,
         "process.env.NODE_ENV": '"production"',

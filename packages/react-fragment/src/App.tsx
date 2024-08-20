@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import { Provider, ErrorBoundary } from "@rollbar/react";
 import Rollbar from "rollbar/dist/rollbar.noconflict.umd.js";
 import { getRollbarConfig } from "./getRollbarConfig";
+import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);

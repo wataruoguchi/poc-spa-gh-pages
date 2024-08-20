@@ -1,9 +1,12 @@
 import r2wc from "@r2wc/react-to-web-component";
 import App from "./App";
-import styles from "./index.css?raw"; // This is the limitation. We could import the external css file and inject it between the style tags. See: https://css-tricks.com/styling-a-web-component/#aa-link-to-external-styles-instead
+import "./index.css";
 
 const template = document.createElement("template");
-template.innerHTML = `<style id="vite-plugin-css-injected-by-js">${styles}</style>`;
+// window.__styles is injected by vite-plugin-css-injected-by-js
+if (window.__styles) {
+  template.innerHTML = `<style id="vite-plugin-css-injected-by-js">${window.__styles}</style>`;
+}
 
 class StyledHelloWC extends r2wc(App, {
   props: { name: "string" },

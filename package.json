@@ -1,5 +1,5 @@
 {
-  "name": "runnel-monorepo",
+  "name": "poc-spa-gh-pages",
   "private": true,
   "workspaces": [
     "packages/*"

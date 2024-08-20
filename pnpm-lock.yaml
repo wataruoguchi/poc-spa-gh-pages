@@ -114,6 +114,9 @@ importers:
       vite:
         specifier: ^5.3.5
         version: 5.3.5(@types/node@22.3.0)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.5.1
+        version: 3.5.1(vite@5.3.5)
       vitest:
         specifier: ^2.0.5
         version: 2.0.5(@types/node@22.3.0)(happy-dom@14.12.3)
@@ -4097,6 +4100,17 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
+
+  /vite-plugin-css-injected-by-js@3.5.1(vite@5.3.5):
+    resolution:
+      {
+        integrity: sha512-9ioqwDuEBxW55gNoWFEDhfLTrVKXEEZgl5adhWmmqa88EQGKfTmexy4v1Rh0pAS6RhKQs2bUYQArprB32JpUZQ==,
+      }
+    peerDependencies:
+      vite: ">2.0.0-0"
+    dependencies:
+      vite: 5.3.5(@types/node@22.3.0)
     dev: true
 
   /vite@5.3.5(@types/node@22.3.0):

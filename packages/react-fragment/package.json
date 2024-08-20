@@ -1,5 +1,5 @@
 {
-  "name": "poc-spa-gh-pages",
+  "name": "react-fragment",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -37,6 +37,7 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.0",
     "vite": "^5.3.5",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
     "vitest": "^2.0.5"
   }
 }
