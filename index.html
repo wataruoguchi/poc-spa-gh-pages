@@ -13,6 +13,10 @@
       html {
         background-color: rgb(0, 120, 0);
       }
+      .fragment-container {
+        border: 5px dotted rgb(16, 62, 16);
+        margin: 10px;
+      }
     </style>
 
     <!-- favicon -->
@@ -53,8 +57,22 @@
     <!-- End Single Page Apps for GitHub Pages -->
   </head>
   <body>
-    <hello-wc></hello-wc>
-    <hello-tailwind-wc></hello-tailwind-wc>
+    <div>
+      <p>
+        Repository:
+        <a
+          href="https://github.com/wataruoguchi/poc-spa-gh-pages"
+          target="_blank"
+          >https://github.com/wataruoguchi/poc-spa-gh-pages</a
+        >
+      </p>
+    </div>
+    <div class="fragment-container">
+      <hello-wc></hello-wc>
+    </div>
+    <div class="fragment-container">
+      <hello-tailwind-wc></hello-tailwind-wc>
+    </div>
     <script>
       var elm = document.createElement("script");
       // Browser cache busting
