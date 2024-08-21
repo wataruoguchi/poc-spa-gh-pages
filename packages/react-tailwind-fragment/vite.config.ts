@@ -49,7 +49,7 @@ export default defineConfig(({ command }) => {
       test: {
         globals: true,
         environment: "happy-dom",
-        setupFiles: ["./vitest-setup.js"],
+        setupFiles: ["./vitest-setup.js", "src/test-utils/setup-mock.ts"],
         coverage: {
           include: ["src/**/*.ts", "src/**/*.tsx"],
           exclude: ["src/**/*.d.ts", "src/main.tsx", "src/index.tsx"],
