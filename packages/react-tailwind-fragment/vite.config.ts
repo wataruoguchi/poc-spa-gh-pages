@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
         ...defaultConfig.plugins,
         cssInjectedByJsPlugin({
           injectCode: (cssCode: string) => {
-            return `window.__styles = ${cssCode}`;
+            return `window.__styles = window.__styles || {};window.__styles['react-tailwind-fragment'] = ${cssCode}`;
           },
         }),
       ],

@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    __styles: string;
+    __styles: Record<string, string>;
   }
 }
 

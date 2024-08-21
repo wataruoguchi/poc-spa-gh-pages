@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 const gitVersion = execSync("git rev-parse --short HEAD").toString().trim();
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
   const defaultConfig = {
@@ -21,7 +22,7 @@ export default defineConfig(({ command }) => {
         ...defaultConfig.plugins,
         cssInjectedByJsPlugin({
           injectCode: (cssCode: string) => {
-            return `window.__styles = ${cssCode}`;
+            return `window.__styles = window.__styles || {};window.__styles['react-fragment'] = ${cssCode}`;
           },
         }),
       ],
