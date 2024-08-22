@@ -6,24 +6,44 @@ on:
 
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Run tests
+        run: pnpm run test:packages:coverage
+
+      - name: Build packages
+        run: pnpm run build:packages
+
       - name: Configure Git Credentials
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      - uses: pnpm/action-setup@v4
-      - run: pnpm install --frozen-lockfile --ignore-scripts
-      - run: npm run build:packages
-      - run: rm -rf packages node_modules .gitignore
-      - run: git init
-      - run: git checkout -b gh-pages
-      - run: git add -A
-      - run: git commit -m "Deploy"
-      - run: git push -f origin gh-pages
+
+      - name: Update the gh-pages branch
+        run: |
+          rm -rf packages node_modules .gitignore
+          git init
+          git checkout -b gh-pages
+          git add -A
+          git commit -m "Deploy"
+          git push -f origin gh-pages
