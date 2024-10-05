@@ -1,0 +1,15 @@
+{
+  "_vendor-DXqQCM1T.js": {
+    "file": "assets/vendor-DXqQCM1T.js",
+    "name": "vendor"
+  },
+  "src/main.ts": {
+    "file": "main.js",
+    "name": "main",
+    "src": "src/main.ts",
+    "isEntry": true,
+    "imports": [
+      "_vendor-DXqQCM1T.js"
+    ]
+  }
+}

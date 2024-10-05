@@ -1,0 +1,22 @@
+{
+  "_vendor-CQE4VhUm.js": {
+    "file": "assets/vendor-CQE4VhUm.js",
+    "name": "vendor"
+  },
+  "src/assets/react.svg": {
+    "file": "assets/react-CHdo91hT.svg",
+    "src": "src/assets/react.svg"
+  },
+  "src/index.tsx": {
+    "file": "assets/index-C3FM58D5.js",
+    "name": "index",
+    "src": "src/index.tsx",
+    "isEntry": true,
+    "imports": [
+      "_vendor-CQE4VhUm.js"
+    ],
+    "assets": [
+      "assets/react-CHdo91hT.svg"
+    ]
+  }
+}

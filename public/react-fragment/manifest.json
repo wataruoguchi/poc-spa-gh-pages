@@ -1,0 +1,22 @@
+{
+  "_vendor-BlchZ8KM.js": {
+    "file": "assets/vendor-BlchZ8KM.js",
+    "name": "vendor"
+  },
+  "src/assets/react.svg": {
+    "file": "assets/react-CHdo91hT.svg",
+    "src": "src/assets/react.svg"
+  },
+  "src/index.tsx": {
+    "file": "assets/index-B0xjW1jd.js",
+    "name": "index",
+    "src": "src/index.tsx",
+    "isEntry": true,
+    "imports": [
+      "_vendor-BlchZ8KM.js"
+    ],
+    "assets": [
+      "assets/react-CHdo91hT.svg"
+    ]
+  }
+}
