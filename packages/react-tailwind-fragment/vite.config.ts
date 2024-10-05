@@ -15,8 +15,9 @@ export default defineConfig(({ command }) => {
         ...defaultConfig.plugins,
         cssInjectedByJsPlugin({
           injectCode: (cssCode: string) => {
-            return `window.__styles = window.__styles || {};window.__styles['react-tailwind-fragment'] = ${cssCode}`;
+            return `window.__styles["react-tailwind-fragment"] = ${cssCode}`;
           },
+          topExecutionPriority: false, // Otherwise, the plugin messes up the sourcemaps.
         }),
       ],
       define: {

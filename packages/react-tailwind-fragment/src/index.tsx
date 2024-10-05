@@ -1,7 +1,9 @@
 import r2wc from "@r2wc/react-to-web-component";
 import App from "./App";
 
-class StyledHelloWC extends r2wc(App, {
+window.__styles = window.__styles ?? {};
+
+class StyledWebComponent extends r2wc(App, {
   props: { name: "string" },
   shadow: "open",
 }) {
@@ -9,13 +11,17 @@ class StyledHelloWC extends r2wc(App, {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     super.connectedCallback();
-    // window.__styles is injected by vite-plugin-css-injected-by-js
-    if (window.__styles["react-tailwind-fragment"]) {
-      const template = document.createElement("template");
-      template.innerHTML = `<style id="vite-plugin-css-injected-by-js">${window.__styles["react-tailwind-fragment"]}</style>`;
-      this.shadowRoot?.appendChild(template.content.cloneNode(true));
-    }
+
+    // window.__styles["react-tailwind-fragment"] is added at the end of the file by vite-plugin-css-injected-by-js
+    queueMicrotask(() => {
+      const css = window.__styles["react-tailwind-fragment"];
+      if (css) {
+        const template = document.createElement("template");
+        template.innerHTML = `<style>${css}</style>`;
+        this.shadowRoot?.appendChild(template.content.cloneNode(true));
+      }
+    });
   }
 }
 
-customElements.define("hello-tailwind-wc", StyledHelloWC);
+customElements.define("hello-tailwind-wc", StyledWebComponent);
